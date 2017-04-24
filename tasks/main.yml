@@ -1,7 +1,7 @@
 ---
 # tasks file for ansible-role-run-docker-gluster
 ---
-- name: Run Jenkins
+- name: Run container
   docker:
     name: "{{ docker_container_name }}"
     image: "{{ docker_image_sr }}"
