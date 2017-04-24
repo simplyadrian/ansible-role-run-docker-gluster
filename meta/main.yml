@@ -1,0 +1,12 @@
+galaxy_info:
+  author: Andrew Johnson
+  description: Runs a docker container on a host
+  company: mGage
+  license: BSD
+
+dependencies:
+  - src: https://github.com/mGageTechOps/ansible-role-gluster.git
+    tag: 0.0.1
+
+  - src: https://github.com/mGageTechOps/ansible-role-install-docker.git
+    tag: 0.0.1

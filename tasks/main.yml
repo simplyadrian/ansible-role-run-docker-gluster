@@ -1,0 +1,10 @@
+---
+# tasks file for ansible-role-run-docker-gluster
+---
+- name: Run Jenkins
+  docker:
+    name: "{{ container_name }}"
+    image: "{{ image_name }}"
+    state: started
+    restart_policy: always
+    volumes: "{{ gluster_mount_path }}:{{ container_mount_path }}"
