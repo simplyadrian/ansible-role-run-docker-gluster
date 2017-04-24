@@ -3,8 +3,8 @@
 ---
 - name: Run Jenkins
   docker:
-    name: "{{ container_name }}"
-    image: "{{ image_name }}"
+    name: "{{ docker_container_name }}"
+    image: "{{ docker_image_sr }}"
     state: started
     restart_policy: always
-    volumes: "{{ gluster_mount_path }}:{{ container_mount_path }}"
+    volumes: "{{ docker_gluster_mount_path }}:{{ docker_container_mount_path }}"
