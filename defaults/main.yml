@@ -1,2 +1,3 @@
 ---
 # defaults file for ansible-role-run-docker-gluster
+docker_py_version: 1.10.6

@@ -14,12 +14,23 @@
     path: "{{ docker_gluster_mount_path }}"
   when: docker_gluster_volume_owner is defined
 
+- name: Install python-pip (dependency of ansible docker module)
+  package:
+    name: python-pip
+    state: latest
+
+- name: Install docker-py (dependency of ansible docker module)
+  pip:
+    name: docker-py
+    version: "{{ docker_py_version }}"
+
 - name: Run container
   docker:
     name: "{{ docker_container_name }}"
-    image: "{{ docker_image_sr }}"
+    image: "{{ docker_image_src }}"
     state: started
     restart_policy: always
     volumes: "{{ docker_gluster_mount_path }}:{{ docker_container_mount_path }}"
     expose:
       - 443
+
