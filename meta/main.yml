@@ -9,4 +9,4 @@ dependencies:
     tag: 0.0.1
 
   - src: https://github.com/mGageTechOps/ansible-role-install-docker.git
-    tag: 0.0.1
+    tag: 0.0.2
