@@ -26,10 +26,11 @@
 
 - name: Run container
   docker:
-    name: "{{ docker_container_name }}"
-    image: "{{ docker_image_src }}"
+    name: "{{ item.docker_container_name }}"
+    image: "{{ item.docker_image_src }}"
     state: started
     restart_policy: always
-    volumes: "{{ docker_volumes }}"
-    expose: "{{ docker_expose_ports }}"
-    ports: "{{ docker_port_mappings }}"
+    volumes: "{{ item.docker_volumes }}"
+    expose: "{{ item.docker_expose_ports }}"
+    ports: "{{ item.docker_port_mappings }}"
+  with_items: docker_settings
