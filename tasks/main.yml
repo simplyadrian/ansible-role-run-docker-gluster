@@ -19,6 +19,13 @@
     name: python-pip
     state: latest
 
+- name: Force uid for Docker user
+  user:
+    name: "docker"
+    uid: "{{ docker_uid }}"
+    system: yes
+  when: docker_uid is defined
+
 - name: Install docker-py (dependency of ansible docker module)
   pip:
     name: docker-py
