@@ -3,16 +3,16 @@
 
 - name: Create user for accessing gluster volume
   user:
-    name: "{{ item.docker_gluster_volume_owner }}"
-    uid: "{{ item.docker_gluster_volume_owner_id }}"
+    name: "{{ item.docker_gluster_volume_owner|default(omit) }}"
+    uid: "{{ item.docker_gluster_volume_owner_id|default(omit) }}"
   when: docker_gluster_volume_owner is defined
   with_items: docker_settings
 
 - name: Change ownernship of gluster volume
   file:
-    owner: "{{ item.docker_gluster_volume_owner }}"
-    group: "{{ item.docker_gluster_volume_owner }}"
-    path: "{{ item.docker_gluster_mount_path }}"
+    owner: "{{ item.docker_gluster_volume_owner|default(omit) }}"
+    group: "{{ item.docker_gluster_volume_owner|default(omit) }}"
+    path: "{{ item.docker_gluster_mount_path|default(omit) }}"
   when: docker_gluster_volume_owner is defined
   with_items: docker_settings
 
@@ -32,7 +32,7 @@
     image: "{{ item.docker_image_src }}"
     state: started
     restart_policy: always
-    volumes: "{{ item.docker_volumes }}"
-    expose: "{{ item.docker_expose_ports }}"
-    ports: "{{ item.docker_port_mappings }}"
+    volumes: "{{ item.docker_volumes|default(omit) }}"
+    expose: "{{ item.docker_expose_ports|default(omit) }}"
+    ports: "{{ item.docker_port_mappings|default(omit) }}"
   with_items: docker_settings
