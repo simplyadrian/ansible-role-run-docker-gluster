@@ -30,6 +30,6 @@
     image: "{{ docker_image_src }}"
     state: started
     restart_policy: always
-    volumes: "{{ docker_gluster_mount_path }}:{{ docker_container_mount_path }}"
+    volumes: "{{ docker_volumes }}"
     expose: "{{ docker_expose_ports }}"
     ports: "{{ docker_port_mappings }}"
