@@ -35,4 +35,4 @@
     volumes: "{{ item.docker_volumes }}"
     expose: "{{ item.docker_expose_ports }}"
     ports: "{{ item.docker_port_mappings }}"
-  with_items: docker__settings
+  with_items: docker_settings
