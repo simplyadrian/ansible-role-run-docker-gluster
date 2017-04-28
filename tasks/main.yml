@@ -28,8 +28,8 @@
 
 - name: Run container
   docker:
-    name: "{{ item.docker_container_name }}"
-    image: "{{ item.docker_image_src }}"
+    name: "{{ item.docker_container_name|default(omit) }}"
+    image: "{{ item.docker_image_src|default(omit) }}"
     state: started
     restart_policy: always
     volumes: "{{ item.docker_volumes|default(omit) }}"
