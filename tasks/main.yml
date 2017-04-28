@@ -5,7 +5,6 @@
   user:
     name: "{{ item.docker_gluster_volume_owner|default(omit) }}"
     uid: "{{ item.docker_gluster_volume_owner_id|default(omit) }}"
-  when: docker_gluster_volume_owner is defined
   with_items: docker_settings
 
 - name: Change ownernship of gluster volume
@@ -13,7 +12,6 @@
     owner: "{{ item.docker_gluster_volume_owner|default(omit) }}"
     group: "{{ item.docker_gluster_volume_owner|default(omit) }}"
     path: "{{ item.docker_gluster_mount_path|default(omit) }}"
-  when: docker_gluster_volume_owner is defined
   with_items: docker_settings
 
 - name: Install python-pip (dependency of ansible docker module)
