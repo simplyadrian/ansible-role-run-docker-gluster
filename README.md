@@ -1,3 +1,5 @@
+# !!!!DEPRECATED!!!!
+
 ansible-role-run-docker-gluster
 =========
 
